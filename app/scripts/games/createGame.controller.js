@@ -8,12 +8,13 @@
            ['$scope', '$location', 'gameFactory',
     function($scope,   $location,   gameFactory) {
 
-    
+
     var mapDiv = document.getElementById('map-canvas');
-    var options = { zoom: 12, 
+    var options = { zoom: 12,
                     center: new google.maps.LatLng(33.7550, -84.3900) };
     var map;
     var gameMarker;
+    var loc;
     var circleRadius;
     $scope.invites = [];
 
@@ -24,21 +25,17 @@
          placeMarker(event.latLng);
       });
 
-
     };
 
     setTimeout(init, 500);
 
     var placeMarker = function(location) {
+      loc = location;
 
       if(!gameMarker) {
 
-        var infoWindow = new google.maps.InfoWindow({
-          content: 'PlaceHolder Text',
-        });
-
         var marker = new google.maps.Marker({
-          position: location, 
+          position: location,
           map     : map,
           title   : 'PlaceHolder Title',
           draggable: true,
@@ -74,9 +71,9 @@
           fillOpacity: 0.2,
         });
 
-          circleRadius.bindTo('center', gameMarker, 'position');
+        circleRadius.bindTo('center', gameMarker, 'position');
       };
-     
+
       drawCircle();
 
     };

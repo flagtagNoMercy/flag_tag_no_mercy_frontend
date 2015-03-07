@@ -1,0 +1,23 @@
+<h3>View Game</h3>
+<span ng-model="time">{{ time }}</span>
+<div class="row"> <!-- map row -->
+  <div class="col s12">
+    <div id="map-canvas">
+    </div>
+ </div>
+</div> <!-- map row -->
+
+
+<div class="row">
+  <div class="col s12">
+
+    <ul class="collection">
+      <li class="collection-item avatar" ng-repeat="player in players">
+        <i class="circle green">{{ player.points }}</i>
+        <span class="title">{{ player.name }}</span>
+        <p>{{ player.cords }}</p>
+      </li>
+    </ul>
+
+ </div>
+</div>
