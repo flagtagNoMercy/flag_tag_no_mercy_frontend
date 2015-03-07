@@ -4,7 +4,10 @@
 
   angular.module('flagtag', ['ngRoute', 'ngCookies'])
 
-  .constant({ asdf: {} })
+  .constant({ endpoint: {
+    url: 'https://safe-sands-7813.herokuapp.com/',
+    }
+  })
 
   .config(function($routeProvider) {
     $routeProvider.when('/', {
@@ -17,10 +20,45 @@
       templateUrl: '../templates/register.template.html',
     });
 
+    $routeProvider.when('/games', {
+      controller : 'createGameController',
+      templateUrl: '../templates/createGame.template.html',
+    });
+
+    $routeProvider.when('/games/:id', {
+      controller : 'gameController',
+      templateUrl: '../templates/viewGame.template.html',
+    });
+
+
     $routeProvider.otherwise({
       redirectTo: '/',
     });
 
-  });
+  })
+
+  .run(
+           ['userFactory', '$location', '$rootScope',
+    function(userFactory,   $location,   $rootScope) {
+      $rootScope.$on('$routeChangeStart', function(e) {
+        var path = $location.path();
+        if (!userFactory.checkUserStatus()) {
+          switch (path) {
+            case '/':
+            case '/about':
+            case '/register':
+            case '/logout':
+              return;
+            default:
+              $location.path('/');
+          }
+        }
+
+      });
+
+      }
+      ]);
+
+
 
 }());

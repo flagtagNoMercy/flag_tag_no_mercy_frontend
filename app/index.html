@@ -20,14 +20,14 @@
   <body>
     <div ng-app="flagtag">
 
-    <nav>
+    <nav ng-controller="navController">
       <div class="nav-wrapper">
         <ul id="nav-mobile" class="right">
-          <li><a href="#">About</a></li>
-          <li><a href="#">Manage</a></li>
-          <li><a href="#">Create Game</a></li>
-          <li><a href="#">Login</a></li>
-          <li><a href="#">Logout</a></li>
+          <li><a href="#/about">About</a></li>
+          <li ng-show="loggedIn"><a href="#">Manage</a></li>
+          <li ng-show="loggedIn"><a href="#/games">Create Game</a></li>
+          <li ng-hide="loggedIn"><a href="#/">Login</a></li>
+          <li ng-show="loggedIn" ng-click="logout()"><a href="#/">Logout</a></li>
         </ul>
       </div> <!-- nav-wrapper -->
     </nav>
@@ -37,20 +37,26 @@
     </div> <!-- container -->
 
     </div> <!-- app -->
+    
+    <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/materialize/bin/materialize.js"></script>
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->
         <script src="scripts/main.js"></script>
+        <script src="scripts/nav.controller.js"></script>
+        <script src="scripts/users/user.factory.js"></script>
         <script src="scripts/users/login.controller.js"></script>
         <script src="scripts/users/register.controller.js"></script>
-        <script src="scripts/users/user.factory.js"></script>
+        <script src="scripts/games/game.factory.js"></script>
+        <script src="scripts/games/createGame.controller.js"></script>
         <!-- endbuild -->
 </body>
 </html>

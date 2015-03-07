@@ -1,0 +1,61 @@
+<form ng-submit="create()">
+  <h3>Create New Game</h3>
+  <div class="row"> <!-- map row -->
+    <div class="col s12">
+      <div id="map-canvas">
+      </div>
+      <h6>Click to place marker</h6>
+   </div>
+  </div> <!-- map row -->
+
+
+  <div class="row">
+    <div class="col s12">
+
+      <h5>Invite up to 10 of your friends</h5>
+      <div class="row">
+        <div class="col input-field s6">
+          <i class="mdi-navigation-fullscreen prefix"></i>
+          <input id="radius" type="text" class="validate" ng-model="radius"/>
+          <label for="radius">Play Radius (miles)</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col input-field s6">
+          <i class="mdi-device-access-alarm prefix"></i>
+          <input id="time" type="text" class="validate" ng-model="time"/>
+          <label for="time">Time Limit (minutes)</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col input-field s6">
+          <i class="mdi-communication-email prefix"></i>
+          <input id="" type="text" class="validate" 
+          ng-keypress="addInvite($event)" ng-model="email"/>
+          <label for="email">E-Mail</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col input-field s12">
+ 
+          <ul class="collection">
+            <li class="collection-item" ng-repeat="invite in invites">
+              <span class="red-text" ng-click="removeInvite($index)">X</span>
+              <span>{{ invite }}</span>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+
+      <button class="btn" type="submit">Create!</button>
+
+    </div>
+  </div>
+
+</form>
+
+<div class="card-panel red" ng-show="err">{{ errMsg }}</div>
