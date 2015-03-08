@@ -5,7 +5,7 @@
   angular.module('flagtag')
 
   .controller('createGameController',
-           ['$scope', '$location', 'gameFactory',
+           ['$scope', '$location', 'gameFactory', 
     function($scope,   $location,   gameFactory) {
 
 
@@ -63,12 +63,12 @@
         circleRadius = new google.maps.Circle({
           map: map,
           radius: radius,
-          strokeColor: '#FF0000',
+          strokeColor: '#FF5722',
           strokeOpacity: 0.8,
           strokeWeight: 2,
 
-          fillColor: '#FF0000',
-          fillOpacity: 0.2,
+          fillColor: '#FF5722',
+          fillOpacity: 0.3,
         });
 
         circleRadius.bindTo('center', gameMarker, 'position');
@@ -116,8 +116,35 @@
 
     $scope.create = function() {
       var timelimit = $scope.timelimit || 30;
-      console.log(gameMarker.position.D);
-      console.log(gameMarker.position.k);
+      
+      if (!$scope.radius) { 
+        $scope.err = true;
+        $scope.errMsg = 'A radius is required!';
+        return;
+      }
+
+      if (!gameMarker.position.D || !gameMarker.position.k) {
+        $scope.err = true;
+        $scope.errMsg = 'A location is required!';
+        return;
+      }
+
+      var params = {
+        latitude_start_point: gameMarker.position.D,
+        longitude_start_point: gameMarker.position.k,
+        radius: Number($scope.radius),
+        //time_limit: timelimit,
+      };
+
+      gameFactory.create(params)
+        .success(function(data) {
+          //console.log('succ', data);
+          $location.url('games/' + data.game.id);
+        })
+        .error(function(data) {
+          console.log('err', data);
+        });
+
     };
 
 

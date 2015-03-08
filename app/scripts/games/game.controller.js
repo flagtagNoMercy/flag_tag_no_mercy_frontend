@@ -11,7 +11,7 @@
 
 
     var gameId = $routeParams.id;
-    /*
+
     gameFactory.view(gameId)
       .success(function(data) {
         console.log('yay', data);
@@ -19,7 +19,6 @@
       .error(function(data) {
         console.log('boo', data);
       });
-    */
 
 
 
@@ -81,9 +80,10 @@
     $scope.totalSeconds = 30*60;
     $scope.time = '30:00';
     var countdown = $interval(function() {
-      // min
         var m = ($scope.totalSeconds / 60) >> 0;
+            m += "";
         var s = $scope.totalSeconds % 60;
+            s += "";
         
         if (m.length == 1) { m = "0" + m; }
         if (s.length == 1) { s = "0" + s; }

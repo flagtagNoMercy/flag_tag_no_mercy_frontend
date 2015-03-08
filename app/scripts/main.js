@@ -30,6 +30,10 @@
       templateUrl: '../templates/viewGame.template.html',
     });
 
+    $routeProvider.when('/about', {
+      templateUrl: '../templates/about.template.html',
+    });
+
 
     $routeProvider.otherwise({
       redirectTo: '/',
