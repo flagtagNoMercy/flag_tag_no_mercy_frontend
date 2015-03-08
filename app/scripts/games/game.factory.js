@@ -27,7 +27,8 @@
 
 
     var view = function(gameId) {
-      return $http.get(endpoint.url + 'users/' +  userId + '/games/' + gameId);
+      return $http.get(endpoint.url + 'users/' +  userId + '/games/' + gameId,
+          options);
     };
 
     var update = function() {
@@ -37,8 +38,7 @@
     // List games per user
     var list = function() {
       return $http.get(endpoint.url + 'users/' + userId + '/games/',
-      options     
-      );
+        options);
     };
 
     return {

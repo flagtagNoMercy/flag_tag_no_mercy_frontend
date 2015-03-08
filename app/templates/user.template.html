@@ -1,12 +1,18 @@
 <div class="row">
   <div class="col s12">
 
-    <ul class="collection">
-      <li class="collection-item" ng-repeat="player in players">
-        <span class="title">{{ player.name }}</span>
-        <p>{{ player.cords }}</p>
-      </li>
-    </ul>
+    <div class="collection with-header">
+      <div class="collection-header">
+        <h4 class="h-game">Games tied to your account</h4>
+      </div>
+        <a href="#/games/{{game.id}}" ng-repeat="game in gamelist"
+          class="collection-item">Game #{{ game.id }}
+          <br />
+          Player Count: {{ game.players_count }}
+        </a>
+    </div>
 
  </div>
 </div>
+
+<div class="card-panel red white-text" ng-show="err">{{ errMsg }}</div>

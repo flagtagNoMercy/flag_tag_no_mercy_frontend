@@ -123,7 +123,7 @@
         return;
       }
 
-      if (!gameMarker.position.D || !gameMarker.position.k) {
+      if (!gameMarker) {
         $scope.err = true;
         $scope.errMsg = 'A location is required!';
         return;

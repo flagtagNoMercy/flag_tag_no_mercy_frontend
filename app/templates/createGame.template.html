@@ -1,10 +1,10 @@
 <form ng-submit="create()">
-  <h3>Create New Game</h3>
+  <h3 class="h-game">Create A Game</h3>
   <div class="row"> <!-- map row -->
     <div class="col s12">
       <div id="map-canvas">
       </div>
-      <h6>Click to place marker</h6>
+      <h6 class="subtext">Click to place marker</h6>
    </div>
   </div> <!-- map row -->
 
@@ -12,7 +12,7 @@
   <div class="row">
     <div class="col s12">
 
-      <h5>Invite up to 10 of your friends</h5>
+      <h5 class="h-prompt">Invite up to 10 of your friends</h5>
       <div class="row">
         <div class="col input-field s6">
           <i class="mdi-navigation-fullscreen prefix"></i>
@@ -44,13 +44,14 @@
           <ul class="collection">
             <li class="collection-item" ng-repeat="invite in invites">
               <span>{{ invite }}</span>
-              <span class="secondary-content red-text" ng-click="removeInvite($index)">X</span>
+              <span class="rm secondary-content red-text" ng-click="removeInvite($index)">X</span>
             </li>
           </ul>
 
         </div>
       </div>
 
+      <div class="card-panel red white-text" ng-show="err">{{ errMsg }}</div>
       <button class="btn" type="submit">Create!</button>
 
     </div>
@@ -58,4 +59,3 @@
 
 </form>
 
-<div class="card-panel red" ng-show="err">{{ errMsg }}</div>

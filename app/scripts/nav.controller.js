@@ -9,7 +9,8 @@
     function($scope,   userFactory,   $cookieStore) {
 
       $scope.loggedIn = userFactory.checkUserStatus(); 
-
+      $scope.userId   = $cookieStore.get('id');
+        
       $scope.logout = function() {
           userFactory.logout();
           $scope.loggedIn = false;

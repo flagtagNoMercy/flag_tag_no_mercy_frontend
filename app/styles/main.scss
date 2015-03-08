@@ -13,4 +13,25 @@ body {
 
 .h-title {
   font-weight: 600;
+  text-transform: uppercase;
+}
+
+.h-game {
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+.subtext {
+  font-weight: 200;
+  font-style: italic;
+  padding-left: 1%;
+}
+
+.h-prompt {
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.rm {
+  cursor: pointer;
 }

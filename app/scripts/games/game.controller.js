@@ -11,6 +11,7 @@
 
 
     var gameId = $routeParams.id;
+    $scope.gameId = gameId;
 
     gameFactory.view(gameId)
       .success(function(data) {

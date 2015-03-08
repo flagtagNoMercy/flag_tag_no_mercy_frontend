@@ -1,5 +1,5 @@
 <form ng-submit="login()">
-  <h3>Login</h3>
+  <h3 class="h-prompt">Login</h3>
 
   <div class="row">
     <div class="col s12">
@@ -20,12 +20,12 @@
         </div>
       </div>
 
+      <div class="card-panel red white-text" ng-show="err">{{ errMsg }}</div>
       <button class="btn" type="submit">Login</button>
 
     </div>
   </div>
 </form>
 
-<div class="card-panel red" ng-show="err">{{ errMsg }}</div>
 
 <a href="#/register">Need an account?  Sign up here.</a>

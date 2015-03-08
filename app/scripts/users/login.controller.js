@@ -19,7 +19,6 @@
         }
       };
 
-        console.log(params);
       userFactory.login(params)
         .success(function(data) {
           userFactory.setUserCookieAndSession(data.user);
