@@ -15,6 +15,7 @@
 
     gameFactory.view(gameId)
       .success(function(data) {
+        $scope.data = data;
         console.log('yay', data);
       })
       .error(function(data) {
@@ -24,7 +25,7 @@
 
 
     var mapDiv = document.getElementById('map-canvas');
-    var options = { zoom: 12,
+    var options = { zoom: 15,
                     center: new google.maps.LatLng(33.7550, -84.3900) };
     var map;
     var markers = [
@@ -35,21 +36,61 @@
       {
         lat: 33.75500,
         lng: -84.3905
+      },
+      {
+        lat: 33.75505,
+        lng: -84.3915
+      },
+      {
+        lat: 33.75540,
+        lng: -84.3915
+      },
+      {
+        lat: 33.75509,
+        lng: -84.3925
+      },
+      {
+        lat: 33.75529,
+        lng: -84.3945
       }
+
 
     ];
 
+
     $scope.players = [
       {
-        name: "Alex",
+        email: "this@this.com",
         points: 8,
-        cords: "33.75550, -84.3900",
+        id: 1
       },
       {
-        name: "Bobby",
+        email: "this@that.com",
         points: 10,
-        cords: "33.75500, -84.3905",
+        id: 6
+      },
+      {
+        email: "this@this.com",
+        points: 12,
+        id: 33
+      },
+      {
+        email: "this@that.com",
+        points: 0,
+        id: 99
+      },
+      {
+        email: "this@this.com",
+        points: 3,
+        id: 40
+      },
+      {
+        email: "this@that.com",
+        points: 4,
+        id: 18
       }
+
+
     ];
 
     var init = function() {

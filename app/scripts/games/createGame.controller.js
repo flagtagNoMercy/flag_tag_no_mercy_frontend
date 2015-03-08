@@ -130,8 +130,8 @@
       }
 
       var params = {
-        latitude_start_point: gameMarker.position.D,
-        longitude_start_point: gameMarker.position.k,
+        latitude_start_point: gameMarker.position.k,
+        longitude_start_point: gameMarker.position.D,
         radius: Number($scope.radius),
         //time_limit: timelimit,
       };

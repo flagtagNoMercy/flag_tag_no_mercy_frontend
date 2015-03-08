@@ -33,7 +33,7 @@
     var checkUserStatus = function() {
       // Check for cookie
       var token = $cookieStore.get('authentication_token');
-//      if (!token) { return false; }
+      if (!token) { return false; }
 
       // Set header 
       return true;
