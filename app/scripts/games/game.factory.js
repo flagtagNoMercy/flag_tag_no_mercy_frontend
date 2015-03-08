@@ -34,9 +34,17 @@
 
     };
 
+    // List games per user
+    var list = function() {
+      return $http.get(endpoint.url + 'users/' + userId + '/games/',
+      options     
+      );
+    };
+
     return {
-      view: view,
+      view:   view,
       create: create,
+      list  : list,
     };
 
     }

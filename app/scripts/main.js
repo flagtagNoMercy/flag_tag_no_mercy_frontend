@@ -30,6 +30,14 @@
       templateUrl: '../templates/viewGame.template.html',
     });
 
+
+    $routeProvider.when('/users/:id', {
+      controller : 'userController',
+      templateUrl: '../templates/user.template.html',
+    });
+
+
+
     $routeProvider.when('/about', {
       templateUrl: '../templates/about.template.html',
     });
